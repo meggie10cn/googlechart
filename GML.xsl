@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Name: Lixia Zhao -->
-<!-- Course: Web Tech CSC626-->
-<!-- homework 3 -->
-<!-- due: 3/23/2015-->
+
 <xsl:stylesheet version="1.1" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns:str="http://exslt.org/strings" >
