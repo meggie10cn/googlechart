@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "XSLT-compat" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns:str="http://exslt.org/strings">
+<title>Google Charts</title>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+                body {
+                resize: both;
+                overflow: auto;
+                }</style>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+<h1 align="center" style="color:blue"> Google Charts</h1>
+<script type="text/javascript"> 
+                google.load("visualization", "1.0", {'packages':['corechart','gauge','geochart','annotationchart']});  
+                 
+                // instantiates the charts, passes in the data and draw it.
+                 function pieChart(data, options, id){
+                 var chart = new google.visualization.PieChart(document.getElementById(id));
+                chart.draw(data, options);
+                }
+       
+                function gaugeChart(data, options, id){
+                var chart = new google.visualization.Gauge(document.getElementById(id));
+                chart.draw(data, options);
+                setInterval(function() {
+                data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+                chart.draw(data, options);
+                 }, 13000);
+                setInterval(function() {
+                data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+                chart.draw(data, options);
+                }, 5000);
+               setInterval(function() {
+               data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+             chart.draw(data, options);
+              }, 26000);
+             }
+                    
+               function geoChart(data, options, id){
+               var chart = new google.visualization.GeoChart(document.getElementById(id));
+               chart.draw(data, options);
+               }
+               
+               function bubbleChart(data, options, id){
+               var chart = new google.visualization.BubbleChart(document.getElementById(id));
+               chart.draw(data, options);
+               }
+
+               function annotationChart(data, options, id){
+               var chart = new google.visualization.AnnotationChart(document.getElementById(id));
+               chart.draw(data, options);
+               }
+             
+   
+              </script>
+<script type="text/javascript">
+          // Set a callback to run when the Google Visualization API is loaded.
+          google.setOnLoadCallback(function(){
+            var data = new google.visualization.DataTable();
+            
+               data.addColumn('string','Topping');
+            
+               data.addColumn('number','Slices');
+            
+            data.addRows([
+               
+        ['Mushrooms',3],
+        ['Onions',1],
+        ['Olives',1],
+        ['Zucchini',1],
+        ['Pepperoni',2]
+            ]);
+            
+            var options = {
+               
+            'title' : 'How Much Pizza I Ate Last Night',
+        
+            'width': 500,
+        
+            'height': 400,
+        
+               is3D: true,
+           };
+
+           pieChart(data, options, 'chart1_div');
+      });
+    </script>
+<div id="chart1_div" align="center"></div>
+<script type="text/javascript">
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(function(){
+      var data = new google.visualization.DataTable();
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Label'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Value'
+        });
+      
+      data.addRows([
+      
+        ['Memory',80],
+        ['CPU',50],
+        ['Network',68]
+      ]);
+
+      var options = {
+        
+            'title' : 'Computational resources',
+        
+            'width': 400,
+        
+            'height': 120,
+        
+            redFrom:90, redTo:100,
+        
+            yellowFrom:75, yellowTo:90,
+        
+            minorTick:5 
+      };
+      gaugeChart(data, options, 'chart2_div');
+      });
+    </script>
+<h4 align="center">  Computational Resources </h4>
+<div id="chart2_div" align="center"></div>
+<div align="center">
+<input onclick="setInterva(1)" value="Go Faster" type="button"><input onclick="setInterval(-1)" value="Slow down" type="button">
+</div>
+<br>
+<script type="text/javascript">
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(function(){
+      var data = new google.visualization.DataTable();
+      
+        data.addColumn({
+        type: 'string',
+        label: 'Country',
+        });
+      
+        data.addColumn({
+        type: 'number',
+        label: 'Popularity',
+        });
+      
+      data.addRows([
+      
+        ['China',1300],
+        ['Japan',126],
+        ['USA',300],
+        ['Brazil',400],
+        ['Canada',500],
+        ['France',600],
+        ['RU',700],
+        ['IN',1000]
+      ]);
+
+      var options = {
+      
+            'title' : 'Region GeoChart',
+        
+            'width': 800,
+        
+            'height': 450,
+        
+        'colorAxis' : {
+            
+              colors: [
+                
+                  '#00FF00'
+                  ,
+                  '#DF0101'
+                  
+              ]
+            
+        },
+      
+             backgroundColor: '#E0F2F7'
+      };
+      geoChart(data, options, 'chart3_div');
+      });
+    </script>
+<h4 align="center">Region GeoChart </h4>
+<div id="chart3_div" align="center"></div>
+<script type="text/javascript">
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(function(){
+      var data = new google.visualization.DataTable();
+      
+        data.addColumn({
+          type: 'string',
+          label: 'ID'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Life Expectancy'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Fertility Rate'
+        });
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Region'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Population'
+        });
+      
+      data.addRows([
+      
+        ['CAN',80.66,1.67,'North America',33739900],
+        ['DEU',79.84,1.36,'Europe',81902307],
+        ['DNK',78.6,1.84,'Europe', 5523095],
+        ['EGY',72.73,2.78,'Middle East',797162031],
+        ['GBR',80.05,2,'Europe',61801570],
+        ['IRN',72.49,1.7,'Middle East',73137148],
+        ['IRQ',68.09,4.77,'Middle East', 310907631],
+        ['ISR',81.55,2.96,'Middle East',7485600],
+        ['RUS',68.6,1.54,'Europe',141850000],
+        ['USA',78.09,2.05,'North America',307007000]
+      ]);
+
+      var options = {
+        
+            'title' : 'Correlation between life expectancy, fertility rate and population of some world countries (2010)',
+        
+            'width': 900,
+        
+            'height': 500,
+        
+        'hAxis': {
+        title : 'Life Expenctancy',
+        
+            titleTextStyle : {
+            color:'blue'
+         }
+       },
+    
+        'vAxis': {
+        title : 'Fertility Rate',
+        
+            titleTextStyle : {
+            color:'red'
+         }
+       },
+    
+        bubble: {
+           
+             textStyle: {
+             frontSize: 11
+             }
+           
+        }
+      
+      };
+      bubbleChart(data, options, 'chart4_div');
+      });
+    </script>
+<div id="chart4_div" align="center"></div>
+<br>
+<script type="text/javascript">
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(function(){
+      var data = new google.visualization.DataTable();
+      
+        data.addColumn({
+          type: 'date',
+          label: 'Date'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Kepler-22b mission'
+        });
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Kepler title'
+        });
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Kepler text'
+        });
+      
+        data.addColumn({
+          type: 'number',
+          label: 'Gliese 163 mission'
+        });
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Gliese title'
+        });
+      
+        data.addColumn({
+          type: 'string',
+          label: 'Gliese text'
+        });
+      
+      data.addRows([
+      
+        [new Date(2314, 2, 15),12400,'Lailibertines','High level', 10645,'Gallantors','Start'],
+        [new Date(2314, 2, 16),4045,'Lailibertines','First encounter', 12374,'Gallantors','No clue'],
+        [new Date (2314, 2, 17),35022,'Lailibertines','They are very tall', 15766,'Gallantors','First Encounter'],
+        [new Date(2314, 2, 18),12284,'Lailibertines','Attack on our crew',34334,'Gallantors','Statement of shared principles'],
+        [new Date(2314, 2, 19),8476,'Lailibertines','Heavy casualties', 66467,'Gallantors','Mysteries revealed'],
+        [new Date(2314, 2, 20),0,'Lailibertines','All crew lost', 77463,'Gallantors','Omniscience achieved']
+      ]);
+
+      var options = {
+        
+            'title' : 'Annotation Chart',
+        
+            'width': 900,
+        
+            'height': 500,
+        
+        displayAnnotations: true
+      };
+      annotationChart(data, options, 'chart5_div');
+      });
+    </script>
+<h4 align="center">Annotation Chart </h4>
+<div id="chart5_div" align="center"></div>
+</body>
+</html>
