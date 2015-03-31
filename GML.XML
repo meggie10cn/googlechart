@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GML.xsl"?>
+
+<charts num_charts="5">
+    
+    <chart type="pie" width="500" height="400"  align="center" id="chart1_div">
+        <title>How Much Pizza I Ate Last Night</title>
+        
+        <columns>
+            <column name="Topping" type="string"/>
+            <column name="Slices"  type="number"/>      
+        </columns>
+        
+        <rows>
+            <row name="Mushrooms" value="3"/>
+            <row name="Onions" value="1" />  
+            <row name="Olives" value="1" />       
+            <row name="Zucchini" value="1" /> 
+            <row name="Pepperoni" value="2" />         
+        </rows>
+    </chart>
+    
+    
+    <chart type="gauge" width="400" height="120" align="center" id="chart2_div">
+        <colors>
+            <red from="90" to="100"/>
+            <yellow from="75" to="90"/>
+        </colors>
+        <minorTick>5</minorTick>
+        
+        <title>Computational resources</title>
+        
+      <columns>
+        <column name ="Label" type="string"/>
+        <column name ="Value" type="number"/>
+      </columns>
+        
+       <rows>
+        <row name ="Memory" value="80"/>
+        <row name ="CPU" value="50"/>
+        <row name ="Network" value="68"/>
+       </rows>
+    </chart>  
+    
+    <chart type="geo" width="800" height="450" align="center"  id="chart3_div">
+        <title>Region GeoChart</title>
+        <colorAxis>
+            <colors>
+                <color>#00FF00</color>
+                <color>#DF0101</color>
+            </colors>
+        </colorAxis>
+
+        
+      <columns>
+        <column name ="Country" type ="string"/>
+        <column name = "Popularity" type ="number"/>
+      </columns>
+        
+       <rows>
+        <row name="China" value ="1300"/>
+        <row name="Japan" value ="126"/>
+        <row name="USA" value ="300"/>
+        <row name="Brazil" value ="400"/>
+        <row name="Canada" value ="500"/>
+        <row name="France" value ="600"/>
+        <row name="RU" value ="700"/>
+        <row name="IN" value="1000"/>
+       </rows>
+    </chart>
+    
+    <chart type="bubble" width="900" height="500" align="center" id="chart4_div">
+        <title>Correlation between life expectancy, fertility rate and population of some world countries (2010)</title>
+        <axis title ="Life Expenctancy" titleTextStyle="color:'blue'" type ="h" />
+        <axis title ="Fertility Rate" titleTextStyle="color:'red'" type ="v" />
+        
+        <bubble textStyle="frontSize: 11" />
+        
+        <columns>
+            <column name ="ID" type ="string"/>
+            <column name ="Life Expectancy" type="number"/>
+            <column name ="Fertility Rate" type="number"/>
+            <column name ="Region" type = "string"/>
+            <column name ="Population" type ="number"/>
+        </columns>
+        
+        <rows>
+            <row name ="CAN" value ="80.66,1.67,'North America',33739900" />
+            <row name ="DEU" value ="79.84,1.36,'Europe',81902307" />
+            <row name ="DNK" value ="78.6,1.84,'Europe', 5523095"/>
+            <row name ="EGY" value ="72.73,2.78,'Middle East',797162031"/>
+            <row name ="GBR" value ="80.05,2,'Europe',61801570"/>
+            <row name ="IRN" value ="72.49,1.7,'Middle East',73137148"/>
+            <row name ="IRQ" value ="68.09,4.77,'Middle East', 310907631"/>
+            <row name ="ISR" value ="81.55,2.96,'Middle East',7485600"/>
+            <row name ="RUS" value ="68.6,1.54,'Europe',141850000"/>
+            <row name ="USA" value ="78.09,2.05,'North America',307007000"/>
+        </rows>
+        
+    </chart>
+    
+    <chart type="annotation" width="900" height="500" align="center" id="chart5_div">
+        <title>Annotation Chart</title> 
+        
+      <columns>
+        <column name = "Date" type = "date"/>
+        <column name = "Kepler-22b mission" type = "number"/>
+        <column name = "Kepler title" type = "string"/>
+        <column name = "Kepler text" type = "string"/>
+        <column name = "Gliese 163 mission" type = "number"/>
+        <column name = "Gliese title" type = "string"/>
+        <column name = "Gliese text" type = "string"/>
+      </columns> 
+        
+      <rows>
+          <row name = 'new Date(2314, 2, 15)'  value ="12400,'Lailibertines','High level', 10645,'Gallantors','Start'"/>
+          <row name ='new Date(2314, 2, 16)' value ="4045,'Lailibertines', , , ,'No clue'"/>
+        <row name ='new Date (2314, 2, 17)' value="35022,'Lailibertines','They are very tall', 15766,'Gallantors','First Encounter'"/>
+        <row name ='new Date(2314, 2, 18)' value ="12284,'Lailibertines','Attack on our crew',34334,'Gallantors','Statement of shared principles'"/>    
+        <row name ='new Date(2314, 2, 19)' value="8476,'Lailibertines','Heavy casualties', 66467,'Gallantors','Mysteries revealed'"/> 
+        <row name ='new Date(2314, 2, 20)' value="0,'Lailibertines','All crew lost', 77463,'Gallantors','Omniscience achieved'"/> 
+      </rows>
+    </chart>
+</charts>
